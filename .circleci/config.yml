@@ -27,7 +27,38 @@ jobs:
           at: ./dist/artifacts
       - run:
           name: "Publish Release on GitHub"
+          filters:
+            tags:
+              only: /^v.*/
           command: |
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./dist/artifacts/
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /^main/
+  release:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /^main/
+      - release:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+      - publish-github-release:
+          requires:
+            - release
+          filters:
+            tags:
+              only: /^v.*/
+
 
 
