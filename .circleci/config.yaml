@@ -1,0 +1,33 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.7.0
+jobs:
+  build:
+    executor:
+      name: node/default
+      tag: '16.14'
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn build
+  release:
+    executor:
+      name: node/default
+      tag: '16.14'
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn build
+      - run: yarn pkg
+  publish-github-release:
+    docker:
+      - image: cibuilds/github:0.10
+    steps:
+      - attach_workspace:
+          at: ./dist/artifacts
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./dist/artifacts/
+
+

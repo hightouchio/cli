@@ -5,14 +5,13 @@
   "description": "Hightouch CLI",
   "author": "Daishan Peng @StrongMonkey",
   "homepage": "https://github.com/StrongMonkey/cli",
-  "license": "MIT",
   "bin": {
-    "ht": "bin/run"
+    "ht": "scripts/run"
   },
   "main": "dist/index.js",
   "repository": "StrongMonkey/cli",
   "files": [
-    "/bin",
+    "/scripts",
     "/dist"
   ],
   "dependencies": {
@@ -65,9 +64,10 @@
     "posttest": "yarn lint",
     "prepack": "yarn build && oclif manifest && oclif readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif readme && git add README.md",
-    "pkg": "pkg . --targets=node14-macos"
+    "readme": "oclif readme --dir docs",
+    "pkg": "pkg --output ./dist/artifacts/ht -t node14-linux-x64,node14-macos-x64,node14-win-x64 ./dist/index.js"
   },
+  "license": "Apache-2.0",
   "engines": {
     "node": ">=12.0.0"
   },
@@ -78,6 +78,10 @@
   "types": "module",
   "pkg": {
     "scripts": "./dist/**/*.js",
-    "outputPath": "dist"
+    "targets": [
+     "node14-linux-x64",
+     "node14-macos-x64",
+     "node14-win-x64"
+    ]
   }
 }
