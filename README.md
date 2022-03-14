@@ -24,18 +24,6 @@ Hightouch cli is written in typescripts. To test or develop in local development
 $ ./script/dev
 ```
 
-## Usage
-<!-- usage -->
-```sh-session
-$ ht COMMAND
-running command...
-$ ht (--version)
-ht/0.1.0 darwin-x64 node-v16.13.1
-$ ht --help [COMMAND]
-USAGE
-  $ ht COMMAND
-...
-```
 <!-- usagestop -->
 ## Commands
 <!-- commands -->
