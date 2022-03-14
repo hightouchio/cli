@@ -1,31 +1,26 @@
-Hightouch CLI
-=================
+# Hightouch CLI
 
 Hightouch CLI to list, inspect resources and trigger syncs
+
+[![CircleCI](https://circleci.com/gh/hightouchio/cli.svg?style=shield)](https://circleci.com/gh/hightouchio/cli)
+
+## Demo
+
+[![asciicast](https://asciinema.org/a/kFXceRxY6hPTlCz4YeRHv6hGt.svg)](https://asciinema.org/a/kFXceRxY6hPTlCz4YeRHv6hGt)
 
 ## Installation
 
 To install from curl script, run 
 
 ```shell
-
+curl -sLf https://raw.githubusercontent.com/hightouchio/cli/main/install.sh | sh -
 ```
 
-To install from Github package, download the latest release from here. Put 
+Note: Make sure you know what you are doing when running scripts. 
 
-## Development
-
-Hightouch cli is written in typescripts. To test or develop in local development:
-
-1. Install latest [LTS](https://nodejs.org/en/download/) nodejs. 
-
-2. Run
-```shell
-$ ./script/dev
-```
+To install from Github package, download the latest release from [here](https://github.com/hightouchio/cli/releases).
 
 <!-- usagestop -->
-## Commands
 <!-- commands -->
 ## Command Topics
 
@@ -39,6 +34,17 @@ $ ./script/dev
 * [`ht trigger`](docs/trigger.md) - Trigger sync to run
 
 <!-- commandsstop -->
+
+## Local Development
+
+Hightouch cli is written in typescripts. To test or develop in local development:
+
+1. Install latest [LTS](https://nodejs.org/en/download/) nodejs.
+
+2. Run
+```shell
+$ ./script/dev
+```
 
 ## License
 

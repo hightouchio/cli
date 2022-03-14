@@ -65,7 +65,7 @@
     "prepack": "yarn build && oclif manifest && oclif readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "readme": "oclif readme --dir docs",
-    "pkg": "pkg --output ./dist/artifacts/ht ."
+    "pkg": "pkg --output ./dist/artifacts/ht . && ./scripts/sha256sum.sh"
   },
   "license": "Apache-2.0",
   "engines": {

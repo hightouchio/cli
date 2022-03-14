@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@4.7.0
+  gh: circleci/github-cli@1.0
 jobs:
   build:
     executor:
@@ -10,6 +11,7 @@ jobs:
       - checkout
       - run: yarn install
       - run: yarn build
+
   release:
     executor:
       name: node/default
@@ -19,41 +21,31 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn pkg
-  publish-github-release:
+      - persist_to_workspace:
+          root: .
+          paths:
+          - ./dist/artifacts
+  upload:
     docker:
-      - image: cibuilds/github:0.10
+      - image: 'cimg/base:stable'
     steps:
-      - attach_workspace:
-          at: ./dist/artifacts
-      - run:
-          name: "Publish Release on GitHub"
-          filters:
-            tags:
-              only: /^v.*/
-          command: |
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./dist/artifacts/
+      - checkout
+      - gh/setup
+      - run: gh release upload --repo "$(git config --get remote.origin.url)" ${CIRCLE_TAG} /tmp/dist/artifacts/**
 
 workflows:
   version: 2
-  build:
+  build-and-release:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: /^main/
-  release:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: /^main/
+      - build
       - release:
-          requires:
-            - build
           filters:
             tags:
               only: /^v.*/
-      - publish-github-release:
+      - upload:
+          pre-steps:
+            - attach_workspace:
+                at: /tmp
           requires:
             - release
           filters:

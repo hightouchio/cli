@@ -44,6 +44,7 @@ setup_env() {
 # --- set arch and suffix, fatal if architecture not supported ---
 setup_verify_arch() {
     OS=$(echo "$(uname)"|tr '[:upper:]' '[:lower:]')
+    SUF="linux"
 
     case "$OS" in
         # Minimalist GNU for Windows
@@ -51,8 +52,10 @@ setup_verify_arch() {
         linux)
             ;;
         windows)
+        SUF="win.exe"
             ;;
         darwin)
+        SUF="macos"
             ;;
         *)
             fatal "Unsupported OS $OS"
@@ -81,7 +84,7 @@ setup_verify_arch() {
             fatal "Unsupported architecture $ARCH"
     esac
 
-    SUFFIX=-${OS}-${ARCH}
+    SUFFIX=-${SUF}
 }
 
 # --- fatal if no curl ---
