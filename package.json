@@ -65,7 +65,7 @@
     "prepack": "yarn build && oclif manifest && oclif readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "readme": "oclif readme --dir docs",
-    "pkg": "pkg --output ./dist/artifacts/ht -t node14-linux-x64,node14-macos-x64,node14-win-x64 ./dist/index.js"
+    "pkg": "pkg --output ./dist/artifacts/ht ."
   },
   "license": "Apache-2.0",
   "engines": {
