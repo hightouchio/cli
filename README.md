@@ -2,7 +2,7 @@
 
 Hightouch CLI to list, inspect resources and trigger syncs
 
-[![CircleCI](https://circleci.com/gh/hightouchio/cli.svg?style=shield)](https://circleci.com/gh/hightouchio/cli)
+[![CircleCI](https://circleci.com/gh/hightouchio/cli/tree/main.svg?style=shield)](https://circleci.com/gh/hightouchio/cli/tree/main)
 
 ## Demo
 
