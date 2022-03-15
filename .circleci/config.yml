@@ -41,22 +41,25 @@ orbs:
   node: circleci/node@4.7.0
 version: 2.1
 workflows:
-  build-and-release:
+  build:
     jobs:
       - build
-      -
-        release:
+  release:
+    jobs:
+      - release:
           filters:
             tags:
               only: /^v.*/
-      -
-        upload:
+            branches:
+              ignore: /.*/
+      - upload:
           filters:
             tags:
               only: /^v.*/
+            branches:
+              ignore: /.*/
           pre-steps:
-            -
-              attach_workspace:
+            - attach_workspace:
                 at: /tmp
           requires:
             - release
