@@ -10,13 +10,11 @@ Hightouch CLI to list, inspect resources and trigger syncs
 
 ## Installation
 
-To install from curl script, run 
+To install from YOLO curl script, run 
 
 ```shell
 curl -sLf https://raw.githubusercontent.com/hightouchio/cli/main/install.sh | sh -
 ```
-
-Note: Make sure you know what you are doing when running scripts. 
 
 To install from Github package, download the latest release from [here](https://github.com/hightouchio/cli/releases).
 
