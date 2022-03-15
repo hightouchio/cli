@@ -3,17 +3,17 @@ import got from "got";
 import { getConfig, timeAgo } from "../util";
 import cli from "cli-ux";
 
-export default class Destinations extends Command {
-  static aliases = ["destinations"];
+export default class Sources extends Command {
+  static aliases = ["source"];
 
-  static description = "List all destinations in current workspace";
+  static description = "List all sources in current workspace";
 
-  static examples = [`$ ht destination`];
+  static examples = [`$ ht sources`];
 
   async run(): Promise<void> {
     const { serverAddress, token } = getConfig();
     const { data } = await got
-      .get(`${serverAddress}/api/v1/destinations`, {
+      .get(`${serverAddress}/api/v1/sources`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -23,7 +23,7 @@ export default class Destinations extends Command {
     cli.table(data, {
       id: {
         minWidth: 7,
-        get: (row) => `destinations/${row.slug}`,
+        get: (row) => `sources/${row.slug}`,
       },
       name: {},
       type: {},

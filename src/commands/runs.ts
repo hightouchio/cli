@@ -4,12 +4,12 @@ import { calculateDuration, getConfig, timeAgo } from "../util";
 import cli from "cli-ux";
 import { inspect } from "./inspect";
 
-export default class SyncRun extends Command {
-  static aliases = ["sync-runs"];
+export default class Runs extends Command {
+  static aliases = ["runs"];
 
-  static description = "List all syncs in current workspace";
+  static description = "List all syncs run for a given sync";
 
-  static examples = [`$ ht sync`];
+  static examples = [`$ ht runs`];
 
   static flags = {
     sync: Flags.string({
@@ -25,7 +25,7 @@ export default class SyncRun extends Command {
   };
 
   async run(): Promise<void> {
-    const { flags } = await this.parse(SyncRun);
+    const { flags } = await this.parse(Runs);
 
     const { serverAddress, token } = getConfig();
 

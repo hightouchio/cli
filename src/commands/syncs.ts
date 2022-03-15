@@ -3,12 +3,12 @@ import got from "got";
 import { getConfig, timeAgo } from "../util";
 import cli from "cli-ux";
 
-export default class Sync extends Command {
+export default class Syncs extends Command {
   static aliases = ["syncs"];
 
   static description = "List all syncs in current workspace";
 
-  static examples = [`$ ht sync`];
+  static examples = [`$ ht syncs`];
 
   async run(): Promise<void> {
     const { serverAddress, token } = getConfig();

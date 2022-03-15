@@ -14,14 +14,11 @@ export default class Login extends Command {
 
   async run(): Promise<void> {
     const config = getConfig();
-    const defaultServer = config.serverAddress
+    const serverAddress = config.serverAddress
       ? config.serverAddress
       : "https://api.hightouch.io";
     const defaultToken = config.token ? config.token : "";
 
-    const serverAddress = await cli.prompt("Hightouch server hostname", {
-      default: defaultServer,
-    });
     const token = await cli.prompt("Hightouch API key", {
       type: "hide",
       default: defaultToken,

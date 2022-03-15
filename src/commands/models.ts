@@ -4,11 +4,11 @@ import { getConfig, timeAgo } from "../util";
 import cli from "cli-ux";
 
 export default class Models extends Command {
-  static aliases = ["models"];
+  static aliases = ["model"];
 
   static description = "List all models in current workspace";
 
-  static examples = [`$ ht model`];
+  static examples = [`$ ht models`];
 
   async run(): Promise<void> {
     const { serverAddress, token } = getConfig();

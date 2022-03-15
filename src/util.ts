@@ -13,7 +13,14 @@ export function getConfig(): { serverAddress: string; token: string } {
   if (!existsSync(configPath)) {
     return { serverAddress: "", token: "" };
   }
-  return JSON.parse(readFileSync(configPath).toString());
+  const config = JSON.parse(readFileSync(configPath).toString());
+  if (process.env.HIGHTOUCH_APIKEY) {
+    config.token = process.env.HIGHTOUCH_APIKEY;
+  }
+  if (process.env.HIGHTOUCH_APISITE) {
+    config.serverAddress = process.env.HIGHTOUCH_APISITE;
+  }
+  return config;
 }
 
 export function calculateDuration(durationInMs: number): string {
