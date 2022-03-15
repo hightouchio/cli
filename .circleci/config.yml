@@ -1,56 +1,63 @@
-version: 2.1
-orbs:
-  node: circleci/node@4.7.0
-  gh: circleci/github-cli@1.0
+---
 jobs:
   build:
     executor:
       name: node/default
-      tag: '16.14'
+      tag: "16.14"
     steps:
       - checkout
-      - run: yarn install
-      - run: yarn build
-
+      -
+        run: "yarn install"
+      -
+        run: "yarn build"
   release:
     executor:
       name: node/default
-      tag: '16.14'
+      tag: "16.14"
     steps:
       - checkout
-      - run: yarn install
-      - run: yarn build
-      - run: yarn pkg
-      - persist_to_workspace:
-          root: .
+      -
+        run: "yarn install"
+      -
+        run: "yarn build"
+      -
+        run: "yarn pkg"
+      -
+        persist_to_workspace:
           paths:
-          - ./dist/artifacts
+            - ./dist/artifacts
+          root: "."
   upload:
     docker:
-      - image: 'cimg/base:stable'
+      -
+        image: "cimg/base:stable"
     steps:
       - checkout
       - gh/setup
-      - run: gh release upload --repo "$(git config --get remote.origin.url)" ${CIRCLE_TAG} /tmp/dist/artifacts/**
-
+      -
+        run: "gh release upload --repo \"$(git config --get remote.origin.url)\" ${CIRCLE_TAG} /tmp/dist/artifacts/**"
+orbs:
+  gh: circleci/github-cli@1.0
+  node: circleci/node@4.7.0
+version: 2.1
 workflows:
-  version: 2
   build-and-release:
     jobs:
       - build
-      - release:
+      -
+        release:
           filters:
             tags:
               only: /^v.*/
-      - upload:
+      -
+        upload:
+          filters:
+            tags:
+              only: /^v.*/
           pre-steps:
-            - attach_workspace:
+            -
+              attach_workspace:
                 at: /tmp
           requires:
             - release
-          filters:
-            tags:
-              only: /^v.*/
-
-
-
+  version: 2
