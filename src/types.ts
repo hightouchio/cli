@@ -17,4 +17,5 @@ export interface Run {
     changedCount: number;
   };
   completionRatio: number;
+  error: string;
 }

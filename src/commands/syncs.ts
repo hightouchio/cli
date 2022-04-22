@@ -4,7 +4,7 @@ import { getConfig, timeAgo } from "../util";
 import cli from "cli-ux";
 
 export default class Syncs extends Command {
-  static aliases = ["syncs"];
+  static aliases = ["sync"];
 
   static description = "List all syncs in current workspace";
 
