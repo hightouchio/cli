@@ -1,19 +1,20 @@
 export interface Run {
   querySize: number;
-  diff: {
-    added: number;
-    removed: number;
-    changed: number;
+  status: string;
+  plannedRows: {
+    addedCount: number;
+    removedCount: number;
+    changedCount: number;
   };
-  success: {
-    added: number;
-    removed: number;
-    changed: number;
+  successfulRows: {
+    addedCount: number;
+    removedCount: number;
+    changedCount: number;
   };
-  fail: {
-    added: number;
-    removed: number;
-    changed: number;
+  failedRows: {
+    addedCount: number;
+    removedCount: number;
+    changedCount: number;
   };
   completionRatio: number;
 }

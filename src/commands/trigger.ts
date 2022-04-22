@@ -59,7 +59,9 @@ export default class Trigger extends Command {
             }>();
           if (data && data.length > 0) {
             total =
-              data[0].diff.added + data[0].diff.changed + data[0].diff.removed;
+              data[0].plannedRows.addedCount +
+              data[0].plannedRows.changedCount +
+              data[0].plannedRows.removedCount;
             if (total > 0) {
               clearInterval(timer1);
               resolve();
@@ -97,11 +99,13 @@ export default class Trigger extends Command {
               data: Run[];
             }>();
           const successCount =
-            data[0].success.added +
-            data[0].success.changed +
-            data[0].success.removed;
+            data[0].successfulRows.addedCount +
+            data[0].successfulRows.changedCount +
+            data[0].successfulRows.removedCount;
           const failCount =
-            data[0].fail.added + data[0].fail.changed + data[0].fail.removed;
+            data[0].failedRows.addedCount +
+            data[0].failedRows.changedCount +
+            data[0].failedRows.removedCount;
           const speed = successCount + failCount - current;
           current = successCount + failCount;
           const eta = calculateDuration(

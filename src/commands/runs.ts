@@ -5,7 +5,7 @@ import cli from "cli-ux";
 import { inspect } from "./inspect";
 
 export default class Runs extends Command {
-  static aliases = ["runs"];
+  static aliases = ["run"];
 
   static description = "List all syncs run for a given sync";
 
