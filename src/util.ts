@@ -9,16 +9,21 @@ TimeAgo.addDefaultLocale(en);
 export const timeAgo = new TimeAgo("en-US");
 
 export function getConfig(): { serverAddress: string; token: string } {
+  let config = { serverAddress: "", token: "" };
   const configPath = path.resolve(os.homedir(), ".hightouch/config.json");
-  if (!existsSync(configPath)) {
-    return { serverAddress: "", token: "" };
+  if (existsSync(configPath)) {
+    config = JSON.parse(readFileSync(configPath).toString());
   }
-  const config = JSON.parse(readFileSync(configPath).toString());
+
   if (process.env.HIGHTOUCH_APIKEY) {
     config.token = process.env.HIGHTOUCH_APIKEY;
   }
   if (process.env.HIGHTOUCH_APISITE) {
     config.serverAddress = process.env.HIGHTOUCH_APISITE;
+  }
+
+  if (config.serverAddress === "") {
+    config.serverAddress = "https://api.hightouch.io";
   }
   return config;
 }

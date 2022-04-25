@@ -4,7 +4,7 @@
   "private": true,
   "description": "Hightouch CLI",
   "author": "Daishan Peng @StrongMonkey",
-  "homepage": "https://github.com/StrongMonkey/cli",
+  "homepage": "https://github.com/hightouch/cli",
   "bin": {
     "ht": "scripts/run"
   },

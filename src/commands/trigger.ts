@@ -11,8 +11,7 @@ export default class Trigger extends Command {
   static examples = [`$ ht trigger --sync test123`];
 
   static flags = {
-    fullSync: Flags.boolean({
-      name: "full-sync",
+    "full-sync": Flags.boolean({
       char: "f",
       description: "Whether to run a full sync",
       default: false,
@@ -41,7 +40,7 @@ export default class Trigger extends Command {
           Authorization: `Bearer ${token}`,
         },
         json: {
-          fullSync: flags.fullSync,
+          fullSync: flags["full-sync"],
         },
       })
       .json();
