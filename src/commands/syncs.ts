@@ -19,25 +19,32 @@ export default class Syncs extends Command {
         },
       })
       .json();
-
-    cli.table(data, {
-      id: {
-        minWidth: 7,
-        get: (row) => `syncs/${row.slug}`,
-      },
-      status: {},
-      created: {
-        get: (row) => timeAgo.format(new Date(`${row.createdAt}`)),
-      },
-      lastRunAt: {
-        header: "LastRun",
-        get: (row) => {
-          if (row.lastRunAt) {
-            return timeAgo.format(new Date(`${row.lastRunAt}`));
-          }
-          return "";
+    cli.table(
+      data.sort((a: any, b: any) => {
+        if (new Date(a["lastRunAt"]) > new Date(b["lastRunAt"])) {
+          return -1;
+        }
+        return 1;
+      }),
+      {
+        id: {
+          minWidth: 7,
+          get: (row) => `syncs/${row.slug}`,
+        },
+        status: {},
+        created: {
+          get: (row) => timeAgo.format(new Date(`${row.createdAt}`)),
+        },
+        lastRunAt: {
+          header: "LastRun",
+          get: (row) => {
+            if (row.lastRunAt) {
+              return timeAgo.format(new Date(`${row.lastRunAt}`));
+            }
+            return "";
+          },
         },
       },
-    });
+    );
   }
 }

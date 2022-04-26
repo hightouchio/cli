@@ -40,7 +40,7 @@ export default class Trigger extends Command {
           Authorization: `Bearer ${token}`,
         },
         json: {
-          fullSync: flags["full-sync"],
+          fullResync: flags["full-sync"],
         },
       })
       .json();
