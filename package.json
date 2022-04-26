@@ -4,12 +4,12 @@
   "private": true,
   "description": "Hightouch CLI",
   "author": "Daishan Peng @StrongMonkey",
-  "homepage": "https://github.com/hightouch/cli",
+  "homepage": "https://github.com/hightouchio/cli",
   "bin": {
     "ht": "scripts/run"
   },
   "main": "dist/index.js",
-  "repository": "StrongMonkey/cli",
+  "repository": "hightouchio/cli",
   "files": [
     "/scripts",
     "/dist"
@@ -64,14 +64,14 @@
     "posttest": "yarn lint",
     "prepack": "yarn build && oclif manifest",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "readme": "oclif readme --dir docs --multi",
+    "readme": "oclif readme",
     "pkg": "pkg --output ./dist/artifacts/ht . && ./scripts/sha256sum.sh"
   },
   "license": "Apache-2.0",
   "engines": {
     "node": ">=12.0.0"
   },
-  "bugs": "https://github.com/StrongMonkey/cli/issues",
+  "bugs": "https://github.com/hightouchio/cli/issues",
   "keywords": [
     "oclif"
   ],

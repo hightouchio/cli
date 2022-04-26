@@ -33,17 +33,182 @@ Note: you can override api key with this environment variable `HIGHTOUCH_APIKEY=
 
 <!-- usagestop -->
 <!-- commands -->
-# Command Topics
+* [`ht destinations`](#ht-destinations)
+* [`ht inspect RESOURCE`](#ht-inspect-resource)
+* [`ht login`](#ht-login)
+* [`ht models`](#ht-models)
+* [`ht runs`](#ht-runs)
+* [`ht sources`](#ht-sources)
+* [`ht syncs`](#ht-syncs)
+* [`ht trigger SYNC`](#ht-trigger-sync)
 
-* [`ht destinations`](docs/destinations.md) - List all destinations in current workspace
-* [`ht inspect`](docs/inspect.md) - Inspect resources in the current workspace
-* [`ht login`](docs/login.md) - Login hightouch with api key
-* [`ht models`](docs/models.md) - List all models in current workspace
-* [`ht runs`](docs/runs.md) - List all syncs run for a given sync
-* [`ht sources`](docs/sources.md) - List all sources in current workspace
-* [`ht syncs`](docs/syncs.md) - List all syncs in current workspace
-* [`ht trigger`](docs/trigger.md) - Trigger sync to run
+## `ht destinations`
 
+List all destinations in current workspace
+
+```
+USAGE
+  $ ht destinations
+
+DESCRIPTION
+  List all destinations in current workspace
+
+ALIASES
+  $ ht destination
+
+EXAMPLES
+  $ ht destinations
+```
+
+_See code: [dist/commands/destinations.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/destinations.ts)_
+
+## `ht inspect RESOURCE`
+
+Inspect resources in the current workspace
+
+```
+USAGE
+  $ ht inspect [RESOURCE] -f <value>
+
+ARGUMENTS
+  RESOURCE  Resource ID
+
+FLAGS
+  -f, --format=<value>  (required) [default: json] Output format(yaml/json)
+
+DESCRIPTION
+  Inspect resources in the current workspace
+
+EXAMPLES
+  $ ht inspect model/run-user
+```
+
+_See code: [dist/commands/inspect.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/inspect.ts)_
+
+## `ht login`
+
+Login hightouch with api key
+
+```
+USAGE
+  $ ht login
+
+DESCRIPTION
+  Login hightouch with api key
+
+EXAMPLES
+  $ ht login
+```
+
+_See code: [dist/commands/login.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/login.ts)_
+
+## `ht models`
+
+List all models in current workspace
+
+```
+USAGE
+  $ ht models
+
+DESCRIPTION
+  List all models in current workspace
+
+ALIASES
+  $ ht model
+
+EXAMPLES
+  $ ht models
+```
+
+_See code: [dist/commands/models.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/models.ts)_
+
+## `ht runs`
+
+List all syncs run for a given sync
+
+```
+USAGE
+  $ ht runs -s <value> [-l <value>]
+
+FLAGS
+  -l, --limit=<value>  [default: 5] Limit the number of runs to output
+  -s, --sync=<value>   (required) Specify sync name to list runs
+
+DESCRIPTION
+  List all syncs run for a given sync
+
+ALIASES
+  $ ht run
+
+EXAMPLES
+  $ ht runs
+```
+
+_See code: [dist/commands/runs.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/runs.ts)_
+
+## `ht sources`
+
+List all sources in current workspace
+
+```
+USAGE
+  $ ht sources
+
+DESCRIPTION
+  List all sources in current workspace
+
+ALIASES
+  $ ht source
+
+EXAMPLES
+  $ ht sources
+```
+
+_See code: [dist/commands/sources.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/sources.ts)_
+
+## `ht syncs`
+
+List all syncs in current workspace
+
+```
+USAGE
+  $ ht syncs
+
+DESCRIPTION
+  List all syncs in current workspace
+
+ALIASES
+  $ ht sync
+
+EXAMPLES
+  $ ht syncs
+```
+
+_See code: [dist/commands/syncs.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/syncs.ts)_
+
+## `ht trigger SYNC`
+
+Trigger sync to run
+
+```
+USAGE
+  $ ht trigger [SYNC] [-f] [-q]
+
+ARGUMENTS
+  SYNC  Sync ID
+
+FLAGS
+  -f, --full-sync  Whether to run a full sync
+  -q, --quiet      Whether to show run progress
+
+DESCRIPTION
+  Trigger sync to run
+
+EXAMPLES
+  $ ht trigger --sync test123
+```
+
+_See code: [dist/commands/trigger.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/trigger.ts)_
 <!-- commandsstop -->
 
 ## Local Development
