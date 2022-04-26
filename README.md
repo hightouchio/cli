@@ -60,7 +60,7 @@ EXAMPLES
   $ ht destinations
 ```
 
-_See code: [dist/commands/destinations.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/destinations.ts)_
+_See code: [src/commands/destinations.ts](https://github.com/hightouchio/cli/blob/v0.1.0/src/commands/destinations.ts)_
 
 ## `ht inspect RESOURCE`
 
@@ -83,7 +83,7 @@ EXAMPLES
   $ ht inspect model/run-user
 ```
 
-_See code: [dist/commands/inspect.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/inspect.ts)_
+_See code: [src/commands/inspect.ts](https://github.com/hightouchio/cli/blob/v0.1.0/src/commands/inspect.ts)_
 
 ## `ht login`
 
@@ -100,7 +100,7 @@ EXAMPLES
   $ ht login
 ```
 
-_See code: [dist/commands/login.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/hightouchio/cli/blob/v0.1.0/src/commands/login.ts)_
 
 ## `ht models`
 
@@ -120,7 +120,7 @@ EXAMPLES
   $ ht models
 ```
 
-_See code: [dist/commands/models.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/models.ts)_
+_See code: [src/commands/models.ts](https://github.com/hightouchio/cli/blob/v0.1.0/src/commands/models.ts)_
 
 ## `ht runs`
 
@@ -144,7 +144,7 @@ EXAMPLES
   $ ht runs
 ```
 
-_See code: [dist/commands/runs.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/runs.ts)_
+_See code: [src/commands/runs.ts](https://github.com/hightouchio/cli/blob/v0.1.0/src/commands/runs.ts)_
 
 ## `ht sources`
 
@@ -164,7 +164,7 @@ EXAMPLES
   $ ht sources
 ```
 
-_See code: [dist/commands/sources.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/sources.ts)_
+_See code: [src/commands/sources.ts](https://github.com/hightouchio/cli/blob/v0.1.0/src/commands/sources.ts)_
 
 ## `ht syncs`
 
@@ -184,7 +184,7 @@ EXAMPLES
   $ ht syncs
 ```
 
-_See code: [dist/commands/syncs.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/syncs.ts)_
+_See code: [src/commands/syncs.ts](https://github.com/hightouchio/cli/blob/v0.1.0/src/commands/syncs.ts)_
 
 ## `ht trigger SYNC`
 
@@ -208,7 +208,7 @@ EXAMPLES
   $ ht trigger --sync test123
 ```
 
-_See code: [dist/commands/trigger.ts](https://github.com/hightouchio/cli/blob/v0.1.0/dist/commands/trigger.ts)_
+_See code: [src/commands/trigger.ts](https://github.com/hightouchio/cli/blob/v0.1.0/src/commands/trigger.ts)_
 <!-- commandsstop -->
 
 ## Local Development

@@ -55,7 +55,7 @@
   "oclif": {
     "bin": "ht",
     "dirname": "ht",
-    "commands": "./dist/commands"
+    "commands": "./src/commands"
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",

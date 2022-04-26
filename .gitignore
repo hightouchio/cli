@@ -2,6 +2,7 @@
 *-error.log
 /.nyc_output
 /lib
+/dist
 /package-lock.json
 /tmp
 node_modules
