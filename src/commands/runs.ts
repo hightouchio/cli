@@ -28,6 +28,9 @@ export default class Runs extends Command {
     const { flags } = await this.parse(Runs);
 
     const { serverAddress, token } = getConfig();
+    if (flags.sync.lastIndexOf("/") !== -1) {
+      flags.sync = flags.sync.substring(flags.sync.lastIndexOf("/") + 1);
+    }
 
     const sync = await inspect(serverAddress, token, "syncs", flags.sync);
 
@@ -56,39 +59,39 @@ export default class Runs extends Command {
       },
       status: {},
       querySize: {
-        header: "Size",
+        header: "Queried",
       },
       diff: {
-        header: "Diff(Added/Changed/Removed)",
+        header: "Planned(Added/Changed/Removed)",
         get: (row) => {
-          const diff = row.diff as {
-            added: number;
-            changed: number;
-            removed: number;
+          const diff = row.plannedRows as {
+            addedCount: number;
+            changedCount: number;
+            removedCount: number;
           };
-          return `${diff.added}/${diff.changed}/${diff.removed}`;
+          return `${diff.addedCount}/${diff.changedCount}/${diff.removedCount}`;
         },
       },
       success: {
-        header: "Success(Added/Changed/Removed)",
+        header: "Succeeded(Added/Changed/Removed)",
         get: (row) => {
-          const success = row.success as {
-            added: number;
-            changed: number;
-            removed: number;
+          const success = row.successfulRows as {
+            addedCount: number;
+            changedCount: number;
+            removedCount: number;
           };
-          return `${success.added}/${success.changed}/${success.removed}`;
+          return `${success.addedCount}/${success.changedCount}/${success.removedCount}`;
         },
       },
       fail: {
-        header: "Fail(Added/Changed/Removed)",
+        header: "Failed(Added/Changed/Removed)",
         get: (row) => {
-          const fail = row.fail as {
-            added: number;
-            changed: number;
-            removed: number;
+          const fail = row.failedRows as {
+            addedCount: number;
+            changedCount: number;
+            removedCount: number;
           };
-          return `${fail.added}/${fail.changed}/${fail.removed}`;
+          return `${fail.addedCount}/${fail.changedCount}/${fail.removedCount}`;
         },
       },
       started: {
