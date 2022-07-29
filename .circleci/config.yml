@@ -9,7 +9,7 @@ jobs:
       -
         run: "npm install"
       -
-        run: "npm build"
+        run: "npm run build"
   release:
     executor:
       name: node/default
@@ -19,9 +19,9 @@ jobs:
       -
         run: "npm install"
       -
-        run: "npm build"
+        run: "npm run build"
       -
-        run: "npm pkg"
+        run: "npm run pkg"
       -
         persist_to_workspace:
           paths:
