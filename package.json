@@ -43,14 +43,14 @@
     "globby": "^11",
     "mocha": "^9",
     "oclif": "^2",
-    "pkg": "4.4.9",
+    "pkg": "5.8.0",
     "shx": "^0.3.3",
     "ts-node": "^10.2.1",
     "tslib": "^2.3.1",
     "typescript": "^4.5.5"
   },
   "resolutions": {
-    "pkg-fetch": "2.6.9"
+    "pkg-fetch": "3.4.2"
   },
   "oclif": {
     "bin": "ht",
@@ -62,7 +62,7 @@
     "lint": "eslint . --ext .ts --config .eslintrc",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
-    "prepack": "yarn build && oclif manifest",
+    "prepack": "npm run build && oclif manifest",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "readme": "oclif readme",
     "pkg": "pkg --output ./dist/artifacts/ht . && ./scripts/sha256sum.sh"
@@ -79,9 +79,9 @@
   "pkg": {
     "scripts": "./dist/**/*.js",
     "targets": [
-     "node14-linux-x64",
-     "node14-macos-x64",
-     "node14-win-x64"
+     "node16-linux-x64",
+     "node16-macos-x64",
+     "node16-win-x64"
     ]
   }
 }

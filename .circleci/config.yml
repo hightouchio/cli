@@ -7,9 +7,9 @@ jobs:
     steps:
       - checkout
       -
-        run: "yarn install"
+        run: "npm install"
       -
-        run: "yarn build"
+        run: "npm build"
   release:
     executor:
       name: node/default
@@ -17,11 +17,11 @@ jobs:
     steps:
       - checkout
       -
-        run: "yarn install"
+        run: "npm install"
       -
-        run: "yarn build"
+        run: "npm build"
       -
-        run: "yarn pkg"
+        run: "npm pkg"
       -
         persist_to_workspace:
           paths:
