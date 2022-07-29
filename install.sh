@@ -72,7 +72,11 @@ setup_verify_arch() {
             ARCH=amd64
             ;;
         arm64)
-            ARCH=arm64
+            if [ "$OS" = "darwin" ]; then
+                ARCH=amd64
+            else
+                ARCH=arm64
+            fi
             ;;
         aarch64)
             ARCH=arm64
